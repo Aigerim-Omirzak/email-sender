@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="https://kit.fontawesome.com/6fece25c26.js" crossorigin="anonymous"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>Sending Email via Node.js</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f2f2f2;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        h1 {
+            font-size: 2.5em; /* Larger heading */
+            margin-bottom: 30px;
+        }
+        form {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 500px;
+        }
+        input[type=email], input[type=text], textarea {
+            width: calc(100% - 24px);
+            padding: 15px; 
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 1.1em; 
+            box-sizing: border-box;
+        }
+        button[type=submit] {
+            width: calc(100% - 24px);
+            padding: 15px; 
+            margin-left: 21px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border: none;
+            color: white;
+            background-color: #1e3364;
+            cursor: pointer;
+            font-size: 1.2em;
+            box-sizing: border-box;
+        }
+        button[type=submit]:hover {
+            background-color: #2b91cc;
+        }
+        textarea {
+            margin-left: 21px;
+            height: 150px;
+            resize: vertical;
+        }
+    </style>    
+</head>
+<body>
+    <div>
+        <h1>Send an Email <i class="fa-solid fa-envelope fa-bounce fa-xs"></i></h1>
+        <ul>
+            <% if(typeof result != 'undefined'){ %>
+                <li><%= result.message %></li>
+            <% } %>
+        </ul>
+        <ul>
+            <% if(typeof errors != 'undefined'){ errors.forEach(error => { %>
+                <li><%= error.message %></li>
+            <% })} %>
+        </ul>
+    </div>
+    <form action="/send-email" method="post">
+        <label for="email"><i class="fa-solid fa-at"></i></label>
+        <input type="email" id="email" name="email" placeholder="Email" required><br>
+        <label for="subject"><i class="fa-solid fa-inbox"></i></label>
+        <input type="text" id="subject" name="subject" placeholder="Subject" required><br>
+        <textarea id="text" name="text" placeholder="Your message" required></textarea><br>
+        <button type="submit" class="btn btn-success"><i class="fa-regular fa-paper-plane fa-beat-fade"></i> Send Message</button>
+    </form>
+</body>
+</html>
