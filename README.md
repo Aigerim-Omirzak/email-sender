@@ -30,3 +30,5 @@ Fill out the contact form with your email, subject, and message.
 Click on the "Send Message" button to send the email.
 
 You will receive feedback indicating whether the email was sent successfully or if there were any validation errors.
+
+![image](https://github.com/Aigerim-Omirzak/email-sender/assets/74128426/9e02e04d-ec0e-4599-8a88-cb6ba40c749b)
